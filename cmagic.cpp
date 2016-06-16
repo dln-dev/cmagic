@@ -5,17 +5,15 @@ double factorial(unsigned short int n) {
 }
 
 // n = 0 not supported! Implement first round manually.
+// reset mechanism won't work after using this once.
+// take care!
 double staticFac(unsigned short int n) {
-	static unsigned short int lastN = 0;
 	static double lastFac = 1;
 
-	if(n == 1 && lastN != 0) {
-		lastN = 0;
+	if(n == 1 && lastFac != 1)
 		lastFac = 1;
-	}
 
 	lastFac *= n;
-	lastN++;
 
 	return lastFac;
 }
