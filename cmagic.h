@@ -11,3 +11,5 @@ double factorial(unsigned short int n);
  *
  */
 double staticFac(unsigned short int n);
+
+int **dynMatrix(const unsigned short int rows, const unsigned short int cols);

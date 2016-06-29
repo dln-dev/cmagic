@@ -17,3 +17,14 @@ double staticFac(unsigned short int n) {
 
 	return lastFac;
 }
+
+int **dynMatrix(const unsigned short int rows, const unsigned short int cols) {
+	static unsigned short int i, j;
+
+	int **matrix = new int*[rows];
+	matrix[0] = new int[rows * cols];
+	for(i = 1; i < rows; i++)
+		matrix[i] = matrix[i - 1] + cols;
+
+	return matrix;
+}
