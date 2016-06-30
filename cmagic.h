@@ -12,4 +12,7 @@ double factorial(unsigned short int n);
  */
 double staticFac(unsigned short int n);
 
-int **dynMatrix(const unsigned short int rows, const unsigned short int cols);
+//template <typename T>
+//T **dynMatrix(const unsigned short int rows, const unsigned short int cols);
+
+float **dynMatrix(const unsigned short int rows, const unsigned short int cols);
