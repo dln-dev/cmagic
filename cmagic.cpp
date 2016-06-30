@@ -28,15 +28,5 @@ T **dynMatrix(const unsigned short int rows, const unsigned short int cols) {
 		matrix[i] = matrix[i - 1] + cols;
 
 	return matrix;
-}*/
-
-float **dynMatrix(const unsigned short int rows, const unsigned short int cols) {
-	static unsigned short int i;
-
-	float **matrix = new float*[rows];
-	matrix[0] = new float[rows * cols];
-	for(i = 1; i < rows; i++)
-		matrix[i] = matrix[i - 1] + cols;
-
-	return matrix;
 }
+*/

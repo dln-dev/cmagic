@@ -12,7 +12,19 @@ double factorial(unsigned short int n);
  */
 double staticFac(unsigned short int n);
 
-//template <typename T>
-//T **dynMatrix(const unsigned short int rows, const unsigned short int cols);
+/*
+ * templates have to be declared in the header file, see stackoverflow
+ * there are other methods apparently, but none seem to be working (well)
+ */
+template <typename T>
+T **dynMatrix(const unsigned short int rows, const unsigned short int cols) {
+	static unsigned short int i;
 
-float **dynMatrix(const unsigned short int rows, const unsigned short int cols);
+	T **matrix = new T*[rows];
+	matrix[0] = new T[rows * cols];
+	for(i = 1; i < rows; i++)
+		matrix[i] = matrix[i - 1] + cols;
+
+	return matrix;
+}
+
