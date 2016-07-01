@@ -1,5 +1,9 @@
 #pragma once
 
+/*
+ * returns naively calculated factorial of n
+ *
+ */
 double factorial(unsigned short int n);
 
 /* 
@@ -8,6 +12,7 @@ double factorial(unsigned short int n);
  * IN LOOPS! 
  * It won't return 0!, so you have to take care that your loop
  * starts such that 1! is the first factorial needed.
+ * See testfile for examples.
  *
  */
 double staticFac(unsigned short int n);

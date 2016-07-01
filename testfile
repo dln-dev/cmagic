@@ -1,0 +1,67 @@
+#include <cmath>
+#include "cmagic.h"
+#include <iostream>
+#include <typeinfo>
+
+using namespace std;
+
+int main(void) {
+	bool check[4] = {false, false, false, false};
+	unsigned short int i, j;
+	unsigned short int f = 1;     // short int is enough, 65535! = no good
+	float loopE = 1;              // needs 1, since staticFac won't take 0
+	float mathE = exp(1);
+	float tolerance = 1.0E-6;
+
+	while(abs((loopE - mathE)/mathE) > tolerance)
+		loopE += 1/staticFac(f++);
+
+	if(abs(loopE - mathE) < 1E-5)
+		check[0] = true;
+	else
+		cerr << "staticFac failed" << endl;
+
+	// staticFac is reset in further loops automatically
+	while(abs((loopE - mathE)/mathE) > tolerance/10)
+		loopE += 1/staticFac(f++);
+
+	if(abs(loopE - mathE) < 1E-5)
+		check[1] = true;
+	else
+		cerr << "staticFac reset mechanism failed" << endl;
+
+	//cout << "cmath E:\t" << mathE << "\n";
+	//cout << "loop E:\t\t" << loopE << "\n";
+	//cout << "error:\t\t" << abs((loopE-mathE)/mathE) << endl;
+
+	double ** matrix;
+	matrix = dynMatrix<double>(3,3);
+
+	for(i = 0; i < 3; i++)
+		for(j = 0; j < 3; j++)
+			matrix[i][j] = 1.9;//i / j;
+
+	if(typeid(matrix).name() == typeid(double**).name())
+		check[2] = true;
+	else
+		cerr << "matrix allocation failed" << endl;
+
+	check[3] = true;
+
+	for(i = 0; i < 3; i++)
+		for(j = 0; j < 3; j++)
+			if(matrix[i][j] != 1.9) {
+				check[3] = false;
+				break;
+			}
+
+	for(i = 0; i < 4; i++)
+		if(check[i] == false) {
+			cerr << "test " << i << "failed" << endl;
+			return 0;
+		}
+
+	cout << "tests completed successfully" << endl;
+
+	return 0;
+}

@@ -6,7 +6,6 @@ double factorial(unsigned short int n) {
 
 // n = 0 not supported! Implement first round manually.
 // Reset mechanism won't work after using this only once.
-// Take care!
 double staticFac(unsigned short int n) {
 	static double lastFac = 1;
 
@@ -29,4 +28,13 @@ T **dynMatrix(const unsigned short int rows, const unsigned short int cols) {
 
 	return matrix;
 }
+
+// the following is necessary for the compiler to instantiate the templates
+// unfortunately, calling a function outside main is complicated and ugly, so
+// implementing templates in header is preferred here
+short int satrix = dynMatrix<short int>(3,3);
+int ** iatrix = dynMatrix<int>(3,3);
+float ** fatrix = dynMatrix<float>(3,3);
+double ** datrix = dynMatrix<double>(3,3);
 */
+
