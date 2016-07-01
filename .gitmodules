@@ -1,0 +1,3 @@
+[submodule "cmagic"]
+	path = cmagic
+	url = https://github.com/dln-dev/cmagic

@@ -1,0 +1,10 @@
+/**
+@brief useful additional C++ functions
+@author dln-dev
+@file
+*/
+/**
+@mainpage The C++ functions you've been looking for
+Certain functions are often missed in standard C/C++. For instance, there is no factorial function in cmath and you have to reimplement it every time you'd like to use it. Now, you can simply add these files to your project or add this repository as a submodule and forget about it.
+*/
+
