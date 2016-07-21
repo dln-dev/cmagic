@@ -8,6 +8,10 @@ There is no factorial function in standard c/c++. One must provide an own implem
 Commonly loops include terms using the factorial of the iterator. It is highly inefficient to calculate the factorial on every turn, so a function staticFac is introduced with a static variable containing the last computed factorial.
 In case the function is used in a new loop, all static variables will be reset.
 
+Need dynamically generated matrices? A template is provided making this as easy as calling a function.
+
+Functions *timestamp()* and *duration()* are provided for accurately measuring processing times. This currently needs the C++11 flag.
+
 For testing type **make test** in a console (assuming the provided testfile, makefile and standard cmath are available).
 
 ## Usage: 
