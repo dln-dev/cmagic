@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cmagic',['cmagic',['../md_cmagic_README.html',1,'']]]
+  ['cmagic',['cmagic',['../md__home_mielke_Documents_Programme_cmagic_cmagic_README.html',1,'']]]
 ];
