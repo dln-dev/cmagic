@@ -57,6 +57,6 @@ tpoint timestamp();
  * duration<seconds>(t1, t2)
  */
 template <typename T>
-long duration(tpoint t1, tpoint t2) {
+long int duration(tpoint t1, tpoint t2) {
 	return std::chrono::duration_cast<T>(t2-t1).count();
 }
