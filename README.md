@@ -3,6 +3,8 @@
 ### NEW: measure time with timestamp() and duration()
 These are wrappers for std::chrono functions and types. 
 
+Documentation is [here](https://dln-dev.github.io/cmagic/html/index.html "cmagic Documenation").
+
 There is no factorial function in standard c/c++. One must provide an own implementation for every project in need of it. Instead, simply include these files in your project.
 
 Commonly loops include terms using the factorial of the iterator. It is highly inefficient to calculate the factorial on every turn, so a function staticFac is introduced with a static variable containing the last computed factorial.
