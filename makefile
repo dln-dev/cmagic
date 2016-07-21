@@ -4,7 +4,7 @@ projname = cmagic
 compile = g++
 
 CPP_FILES := $(wildcard ./*.cpp)
-CPP_FLAGS := -O0 -Wall
+CPP_FLAGS := -O0 -Wall -std=c++14
 
 test: testcases clean
 

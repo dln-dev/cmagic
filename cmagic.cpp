@@ -38,3 +38,11 @@ float ** fatrix = dynMatrix<float>(3,3);
 double ** datrix = dynMatrix<double>(3,3);
 */
 
+std::chrono::high_resolution_clock::time_point timestamp() {
+	return std::chrono::high_resolution_clock::now();
+}
+
+/*template <typename T>
+auto duration(std::chrono::high_resolution_clock::time_point t1, std::chrono::high_resolution_clock::time_point t2) {
+	return std::chrono::duration_cast<T>(t2-t1).count();
+}*/

@@ -1,12 +1,16 @@
 #pragma once
 
-/*
+#include <chrono>
+
+typedef std::chrono::high_resolution_clock::time_point tpoint;
+
+/**
  * returns naively calculated factorial of n
  *
  */
 double factorial(unsigned short int n);
 
-/* 
+/**
  * this implementation keeps track of the last factorial calculated.
  * Resets automatically, when used in a new loop (n = 1). ONLY USE 
  * IN LOOPS! 
@@ -17,7 +21,7 @@ double factorial(unsigned short int n);
  */
 double staticFac(unsigned short int n);
 
-/*
+/**
  * templates have to be declared in the header file, see stackoverflow
  * there are other methods apparently, but none seem to be working (well)
  */
@@ -33,3 +37,21 @@ T **dynMatrix(const unsigned short int rows, const unsigned short int cols) {
 	return matrix;
 }
 
+/**
+ * this function returns a std::chrono::high_resolution_clock::time_point 
+ * marking the current time. Use this twice and calculate the difference 
+ * with "duration(tpoint t1, tpoint t2)" to get the time a calculation
+ * took.
+ */
+tpoint timestamp();
+
+/**
+ * measures the difference of two time points and returns a long type
+ * integer. Types are intuitive, like seconds, nanoseconds etc., see
+ * chrono documentation for hints. Use like this:
+ * duration<seconds>(t1, t2)
+ */
+template <typename T>
+long duration(tpoint t1, tpoint t2) {
+	return std::chrono::duration_cast<T>(t2-t1).count();
+}

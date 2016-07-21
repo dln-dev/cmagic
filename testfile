@@ -6,7 +6,7 @@
 using namespace std;
 
 int main(void) {
-	bool check[4] = {false, false, false, false};
+	bool check[5] = {false, false, false, false, false};
 	unsigned short int i, j;
 	unsigned short int f = 1;     // short int is enough, 65535! = no good
 	float loopE = 1;              // needs 1, since staticFac won't take 0
@@ -48,6 +48,8 @@ int main(void) {
 
 	check[3] = true;
 
+	tpoint t1 = timestamp();
+
 	for(i = 0; i < 3; i++)
 		for(j = 0; j < 3; j++)
 			if(matrix[i][j] != 1.9) {
@@ -55,10 +57,15 @@ int main(void) {
 				break;
 			}
 
-	for(i = 0; i < 4; i++)
+	tpoint t2 = timestamp();
+
+	if(duration<chrono::nanoseconds>(t1, t2) < 10000)
+		check[4] = true;
+
+	for(i = 0; i < 5; i++)
 		if(check[i] == false) {
 			cerr << "test " << i << "failed" << endl;
-			return 0;
+			return 1;
 		}
 
 	cout << "tests completed successfully" << endl;
