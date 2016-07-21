@@ -23,16 +23,21 @@ double staticFac(unsigned short int n);
 
 /**
  * templates have to be declared in the header file, see stackoverflow
- * there are other methods apparently, but none seem to be working (well)
+ * there are other methods apparently, but none seem to be working (well).
+ * In the new version, this initializes the matrix with 0s.
  */
 template <typename T>
 T **dynMatrix(const unsigned short int rows, const unsigned short int cols) {
-	static unsigned short int i;
+	static unsigned short int i, j;
 
 	T **matrix = new T*[rows];
 	matrix[0] = new T[rows * cols];
 	for(i = 1; i < rows; i++)
 		matrix[i] = matrix[i - 1] + cols;
+
+	for(i = 0; i < rows; i++)
+		for(j = 0; j < cols; j++)
+			matrix[i][j] = 0;
 
 	return matrix;
 }
